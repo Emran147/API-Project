@@ -1,5 +1,8 @@
 
 class dataManager {
+  constructor(){
+    this.userInfo={}
+  }
 
     getRandomNum(){
         let randomNumber = Math.floor(Math.random() * 949) + 1;
@@ -13,6 +16,10 @@ class dataManager {
           name : pokemonName , 
           picURL : pokemonData.sprites.front_default
         }
+        
+
+
+
         return pokemonObj
       }
       
@@ -26,18 +33,20 @@ class dataManager {
         return mainPerson[0]
      }
 
-    createDataObj(userData, quoteData ,pokemonData,baconData){
+    createDataObj(userData, quoteData ,pokemonData , baconData  ){
 
         let dataObj = {
             friendsList : this.friendsListFunc(userData),
             firstPerson : this.firstPersonFunc(userData),
             pokemonObj : this.pokemonFunc(pokemonData),
             quoteData : quoteData,
-            baconData : baconData[0]
+            baconData : baconData[0],
           }
+        this.userInfo=dataObj  
         return dataObj
-
-    } 
-
+    }
+    
+    getUserInfo(){return this.userInfo} 
+ 
 }
 

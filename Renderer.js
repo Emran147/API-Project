@@ -7,9 +7,14 @@ class Renderer {
         throw new Error('Container or template ID not found.')
       }
     }
-  
-
-    render(dataObj) {
+      render(dataObj,storedArray) {
+        let savedUsersTitle 
+        if (storedArray!=null){
+          savedUsersTitle = 'Saved Users '
+        }
+        else{
+          savedUsersTitle = ' Save Users To see Them Here '
+        }
       try {
         this.clearContainer()
         const compiledTemplate = Handlebars.compile(this.template);
@@ -18,7 +23,9 @@ class Renderer {
           person: dataObj.firstPerson,
           quote: dataObj.quoteData , 
           pokemon : dataObj.pokemonObj,
-          bacon : dataObj.baconData
+          bacon : dataObj.baconData,
+          storedArray : storedArray,
+          savedUsersTitle : savedUsersTitle
         });
   
         this.container.html(renderedHTML)
@@ -26,8 +33,7 @@ class Renderer {
         console.error('Rendering error:', error)
       }
     }
-  
-    clearContainer() {
+      clearContainer() {
       this.container.empty()
     }
   }

@@ -12,43 +12,79 @@
     </div>
     
     <script id="friends-template" type="text/x-handlebars-template">
-         <div class="user-info">
-        <img src="{{person.picture.large}}" >
+
+        <article class="card2">
+            <img src="{{person.picture.large}}" >
             <h1 class="name" > {{person.name.first}}  {{person.name.last}}</h1>         
             <h1 class="city"> {{person.location.city}} , {{person.location.state}} </h1>
-        </div>
-        
-        <div class="friends-list">
-             <h2 class="friends-title">Friends</h2>
+            <span class="top"></span>
+            <span class="right"></span>
+            <span class="bottom"></span>
+            <span class="left"></span>
+        </article>
+
+       <article class="friendsList">
+        <h3>Friends</h3>
+        <p>
             <ul >
-            {{#each data}}
-                <li class="friend-name">{{this.name.first}}  {{this.name.last}} </li>
-            {{/each}}
-            </ul>
-       </div> 
+                {{#each data}}
+                    <li class="listRow">{{this.name.first}}  {{this.name.last}} </li>
+                {{/each}}
+                </ul>
+        </p>
+        <span class="top"></span>
+        <span class="right"></span>
+        <span class="bottom"></span>
+        <span class="left"></span>
+      </article>
+
         <div class="quote">
                 {{quote.quote}}
-        </div>   
+        </div>  
+
         <div class="pokemonDiv">
             <img src="{{pokemon.picURL}}" >
             <h1>{{pokemon.name}}</h1>
              <img src="{{pokemon.picURL}}" >
         </div>
+
         <div class="baconDiv">
           <p class="baconText">{{bacon}}</p>  
         </div>
-     </script>
-        <div class="btnArea">
-            <button class="glow-on-hover" type="button" onclick="refresh()" >Render</button>
-            <button class="glow-on-hover" type="button" id="save" >Save User</button>
-            <button class="glow-on-hover" type="button"  >Upload User</button>
 
+        <article class="savedUsers">
+            <h3>{{savedUsersTitle}}</h3>
+
+            <p>
+                <ul >
+                    {{#each storedArray}}
+                        <li class="listRow" >{{this.firstPerson.name.first}}  {{this.firstPerson.name.last}}  </li>
+                        <Button class="getSavedUserBtn" id="{{this.firstPerson.name.first}}" onclick="getTheSavedUser('{{this.firstPerson.name.first}}')">open profile</Button>
+                    {{/each}}
+                    </ul>
+            </p>
+            <span class="top"></span>
+            <span class="right"></span>
+            <span class="bottom"></span>
+            <span class="left"></span>
+           </article>
+           
+     </script>
+
+
+
+        <div class="btnArea">
+            <button class="glow-on-hover" type="button" onclick="refresh()" >Generate</button>
+            <button class="glow-on-hover" type="button" id="save" onclick="saveUser()" >Save User</button>
+            <button class="glow-on-hover" type="button"  id="save" onclick="clearTheList()">Clear the list</button>
         </div>
+ 
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
-    <script src="logic.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.js"></script>
+    <script src="data-manager.js"></script>
     <script src="URLS.JS"></script>
     <script src="APIManager.js"></script>
     <script src="main.js"></script>
