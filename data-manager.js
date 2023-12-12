@@ -16,11 +16,7 @@ class dataManager {
           name : pokemonName , 
           picURL : pokemonData.sprites.front_default
         }
-        
-
-
-
-        return pokemonObj
+         return pokemonObj
       }
       
     friendsListFunc(userData){

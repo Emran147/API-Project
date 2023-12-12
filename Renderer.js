@@ -8,6 +8,7 @@ class Renderer {
       }
     }
       render(dataObj,storedArray) {
+
         let savedUsersTitle 
         if (storedArray!=null){
           savedUsersTitle = 'Saved Users '
@@ -15,6 +16,7 @@ class Renderer {
         else{
           savedUsersTitle = ' Save Users To see Them Here '
         }
+        
       try {
         this.clearContainer()
         const compiledTemplate = Handlebars.compile(this.template);

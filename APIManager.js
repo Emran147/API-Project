@@ -6,23 +6,23 @@ class ApiManager {
         this.baconAPI=baconAPI
         }
     userDataFunc() {
-        const APIResponse =  $.get(this.userAPI)
-        return APIResponse
+        return   $.get(this.userAPI)
+        
     }
 
     quoteDataFunc(){
-        const APIResponse =  $.get(this.quoteAPI)
-        return APIResponse
+        return  $.get(this.quoteAPI)
+        
     }
 
     pokemonDataFunc(){
-        const APIResponse =  $.get(this.pokemonAPI)
-        return APIResponse
+        return  $.get(this.pokemonAPI)
+        
     }
 
     baconDataFunc(){
-        const APIResponse =  $.get(this.baconAPI)
-        return APIResponse
+        return  $.get(this.baconAPI)
+      
     }
 
     

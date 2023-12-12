@@ -5,15 +5,15 @@ const refresh = function(){
   const apiManager = new ApiManager(urlManager.getUserURL(),urlManager.getQuoteURL(),urlManager.getPokemonURL(),urlManager.getBaconURL())
   Promise.all([apiManager.userDataFunc(), apiManager.quoteDataFunc(),apiManager.pokemonDataFunc(),apiManager.baconDataFunc()])
   .then(([userData, quoteData ,pokemonData,baconData]) => {
-    let storedArray = JSON.parse(localStorage.getItem('savedUsers'));
     let dataObj =  dataArrange.createDataObj(userData, quoteData ,pokemonData,baconData)
-    renderFunc(dataObj,storedArray)
+    renderFunc(dataObj,localStorage.getItem('savedUsers'))
   })
   .catch(error => {
       console.error('Error fetching data:', error)
   })
    
 }
+
 refresh() 
 
 const renderFunc = function(dataObj,storedArray){
