@@ -17,7 +17,7 @@ const refresh = function(){
 }
 
 refresh() 
-
+console.log('test')
 const renderFunc = function(dataObj,storedArray){
   const renderer = new Renderer('container', 'friends-template')
   renderer.render(dataObj,storedArray)
